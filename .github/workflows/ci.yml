@@ -1,4 +1,5 @@
 name: Android CI
+
 on: [push]
 
 jobs:
@@ -6,7 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Restore google-services.json
         run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > app/google-services.json
@@ -18,8 +20,14 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
       - name: Build app
         run: ./gradlew assembleDebug
+
+      - name: Cleanup sensitive files
+        run: rm -f app/google-services.json
