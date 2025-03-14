@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "362267466547",
+    "project_id": "kueki-movies",
+    "storage_bucket": "kueki-movies.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362267466547:android:f89e76782ee6b616b2bc46",
+        "android_client_info": {
+          "package_name": "kueki.movies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpdzdqWV74jrcpg65E5wt73hJE3O-6M_s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
