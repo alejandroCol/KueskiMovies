@@ -3,45 +3,48 @@ package kueski.movies
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import kueski.movies.ui.theme.KueskiMoviesTheme
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import dagger.hilt.android.AndroidEntryPoint
+import kueski.movies.domain.util.Constants.MOVIE_ID_ARG
+import kueski.movies.presentation.navigation.Screen
+import kueski.movies.presentation.theme.MovieAppTheme
+import kueski.movies.presentation.view.MovieDetailScreen
+import kueski.movies.presentation.view.MoviesScreen
+import kueski.movies.presentation.viewmodel.MoviesViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            KueskiMoviesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            val navController = rememberNavController()
+            MovieAppTheme {
+                AppNavigation(navController)
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    KueskiMoviesTheme {
-        Greeting("Android")
+    @Composable
+    fun AppNavigation(navController: NavHostController) {
+        NavHost(navController = navController, startDestination = Screen.MoviesList.route) {
+            composable(Screen.MoviesList.route) {
+                val viewModel = hiltViewModel<MoviesViewModel>()
+                MoviesScreen(navController, viewModel)
+            }
+            composable(
+                route = Screen.MovieDetailScreen.route,
+                arguments = listOf(navArgument(MOVIE_ID_ARG) { type = NavType.IntType })
+            ) { backStackEntry ->
+                val movieId = backStackEntry.arguments?.getInt(MOVIE_ID_ARG) ?: return@composable
+                MovieDetailScreen(movieId, navController)
+            }
+        }
     }
 }

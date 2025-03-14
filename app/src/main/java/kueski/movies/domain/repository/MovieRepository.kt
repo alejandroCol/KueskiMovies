@@ -8,5 +8,6 @@ import kueski.movies.domain.models.MovieQuery
 
 interface MovieRepository {
     fun getPopularMovies(query: MovieQuery): Flow<PagingData<Movie>>
+    fun searchMovies(query: String): Flow<PagingData<Movie>>
     suspend fun getMovieDetail(movieId: Int): MovieDetail
 }

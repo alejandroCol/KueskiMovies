@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Kueski Movies</string>
+    <string-array name="language_codes">
+        <item>en-US</item>
+        <item>es-ES</item>
+    </string-array>
+
+    <string-array name="language_names">
+        <item>Ingles</item>
+        <item>Español</item>
+    </string-array>
+    <string name="change_language">Cambiar idioma</string>
+    <string name="error_message">¡Oh no! Parece que una paloma se robó la película. Inténtalo de nuevo más tarde.</string>
+    <string name="search_message">Busca tu peli…</string>
+    <string name="empty_message">Nada por aquí… ¿Seguro que existe esa película? 🤔</string>
+</resources>

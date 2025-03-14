@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Kueski Movies</string>
+    <string-array name="language_codes">
+        <item>en-US</item>
+        <item>es-ES</item>
+    </string-array>
+
+    <string-array name="language_names">
+        <item>English</item>
+        <item>Español</item>
+    </string-array>
+    <string name="change_language">Change Language</string>
+    <string name="error_message">Oh no! It looks like a pigeon stole the movie. Try again later.</string>
+    <string name="search_message">Search for your movie…</string>
+    <string name="empty_message">Nothing here… Are you sure that movie exists? 🤔</string>
 </resources>
