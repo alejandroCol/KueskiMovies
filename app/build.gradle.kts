@@ -7,6 +7,7 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution")
 }
 
 android {
@@ -85,8 +86,11 @@ dependencies {
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.androidx.paging.testing)
 
+    //Firebase
     implementation(libs.firebase.analytics)
     implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.appdistribution.api.ktx)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
