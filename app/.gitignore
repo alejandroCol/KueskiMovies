@@ -41,6 +41,7 @@ yarn-error.log
 ### Gradle Wrapper ###
 gradle/wrapper/gradle-wrapper.properties
 gradle/wrapper/gradle-wrapper.jar
+gradlew
 gradlew.bat
 
 ### Kotlin ###
