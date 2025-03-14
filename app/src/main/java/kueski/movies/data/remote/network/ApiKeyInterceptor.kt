@@ -1,5 +1,6 @@
 package kueski.movies.data.remote.network
 
+import kueski.movies.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
@@ -10,7 +11,7 @@ class ApiKeyInterceptor @Inject constructor() : Interceptor {
         val originalUrl = originalRequest.url
 
         val newUrl = originalUrl.newBuilder()
-            .addQueryParameter("api_key", "530296488d4f9d0be1da183213b36a81")
+            .addQueryParameter("api_key", BuildConfig.MK_API_KEY)
             .build()
 
         val newRequest = originalRequest.newBuilder()

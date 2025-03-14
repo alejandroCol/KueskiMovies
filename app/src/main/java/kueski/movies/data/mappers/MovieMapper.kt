@@ -36,7 +36,7 @@ object MovieMapper {
     }
 
     fun MovieQuery.toDto(): MovieQueryDto {
-        return MovieQueryDto(page = this.page, language = this.language)
+        return MovieQueryDto(page = this.page, language = this.language, query = this.query)
     }
 
     fun MovieEntity.toDomain(): Movie {
