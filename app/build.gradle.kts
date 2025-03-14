@@ -89,7 +89,7 @@ dependencies {
     //Firebase
     implementation(libs.firebase.analytics)
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.appdistribution.api.ktx)
+    implementation(libs.google.firebase.analytics)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
