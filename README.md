@@ -38,6 +38,7 @@ The application is configured with GitHub Actions for:
 
 1. Clone the repository.
 2. Add TheMovieDB API Key in `local.properties`:
+MK_API_KEY= "YOUR KEY"
 3. Run the application from Android Studio.
 
 ## Technologies Used
